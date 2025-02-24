@@ -3,8 +3,9 @@ package me.minkyoung.todo_list.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.antlr.v4.runtime.misc.NotNull;
+import me.minkyoung.todo_list.Domain.Status;
 import org.springframework.data.annotation.CreatedDate;
+
 
 import java.time.LocalDateTime;
 
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Todo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //자동 증가 ID
     private Long id;
 
     @Column(nullable = false)
@@ -21,11 +22,11 @@ public class Todo {
 
     private String description;
 
-    @Enumerated(EnumType.STRING)
-   // private Status status;
+    @Enumerated(EnumType.STRING) // Enum을 문자열로 저장
+    @Column(nullable = false)
+    private Status status;
 
     @Column(updatable = false)// 값이 바뀌지 않도록 설정
-    @CreatedDate //자동 생성 날짜
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt; // 생성시 자동 저장
 
 }
