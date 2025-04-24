@@ -1,15 +1,18 @@
 package me.minkyoung.todo_list.Dto;
-
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import me.minkyoung.todo_list.Domain.Status;
 import me.minkyoung.todo_list.Entity.Todo;
 
 import java.time.LocalDateTime;
-
+@Getter
+@NoArgsConstructor
 public class TodoResponseDto {//응답 DTO
     //할 일 정보를 조회할 때 반환할 데이터 포함
     private Long id;
     private String title;
     private String description;
-    private Enum status;
+    private Status status;
     private LocalDateTime created_at;
 
     // 엔티티에서 데이터를 변환하여 전달

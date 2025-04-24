@@ -29,4 +29,8 @@ public class Todo {
     @Column(updatable = false)// 값이 바뀌지 않도록 설정
     private LocalDateTime createdAt; // 생성시 자동 저장
 
+    /*public Todo(TodoRequestDto dto) {
+        this.title = dto.getTitle();
+        this.description = dto.getDescription();
+    }*/ //세터 없애고 싶으면 사용. 나중에 없어질 경우 통일성을 위해 싹 다 바꿔야함
 }
