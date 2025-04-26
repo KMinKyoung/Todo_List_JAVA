@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
+@Table(name="todo")
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //자동 증가 ID

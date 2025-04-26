@@ -7,6 +7,9 @@ import me.minkyoung.todo_list.Entity.Todo;
 import me.minkyoung.todo_list.Repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class TodoService {
@@ -20,7 +23,9 @@ public class TodoService {
         todo.setStatus(todoRequestDto.getStatus());
         todo.setCreatedAt(java.time.LocalDateTime.now());
 
-        Todo savedTodo = todoRepository.save(todo);
+        Todo savedTodo = todoRepository.save(todo); //DB 저장
         return new TodoResponseDto(savedTodo);
     }
+
+
 }
