@@ -28,13 +28,13 @@ public class TodoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(todoResponseDto);
     }
 
-    @GetMapping("/todos")
+    @GetMapping("/todos_Lookup")
     public ResponseEntity<List<TodoResponseDto>> getAllTodos() {
         List<TodoResponseDto> response = todoReadService.getAllTodos(); // 서비스 계층 호출
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("todos/{id}")
+    @GetMapping("todos_Lookup/{id}")
     public ResponseEntity<TodoResponseDto> getTodoById(@PathVariable Long id) {
         TodoResponseDto response = todoReadService.getTodoById(id); // 서비스 계층 호출
         return ResponseEntity.ok(response);
