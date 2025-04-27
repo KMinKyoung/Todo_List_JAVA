@@ -3,6 +3,7 @@ package me.minkyoung.todo_list.Controller;
 import lombok.RequiredArgsConstructor;
 import me.minkyoung.todo_list.Dto.TodoRequestDto;
 import me.minkyoung.todo_list.Dto.TodoResponseDto;
+import me.minkyoung.todo_list.Service.TodoDeleteService;
 import me.minkyoung.todo_list.Service.TodoReadService;
 import me.minkyoung.todo_list.Service.TodoService;
 import me.minkyoung.todo_list.Service.TodoUpdateService;
@@ -20,6 +21,7 @@ public class TodoController {
     private final TodoService todoService;
     private final TodoReadService todoReadService;
     private final TodoUpdateService todoUpdateService;
+    private final TodoDeleteService todoDeleteService;
 
     @PostMapping()
     public ResponseEntity<TodoResponseDto> createTodo(@RequestBody TodoRequestDto todoRequestDto) {
@@ -44,6 +46,12 @@ public class TodoController {
                                                       @RequestBody TodoRequestDto todoRequestDto) {
         TodoResponseDto updatedTodo = todoUpdateService.updateTodo(id, todoRequestDto);
         return ResponseEntity.ok(updatedTodo);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<TodoResponseDto> deleteTodo(@PathVariable Long id) {
+        todoDeleteService.deleteTodo(id); //반환할 필요가 없기에 객체 형태가 아닌 그냥 호출
+        return ResponseEntity.noContent().build();
     }
 
 }
