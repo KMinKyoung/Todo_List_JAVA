@@ -7,9 +7,6 @@ import me.minkyoung.todo_list.Entity.Todo;
 import me.minkyoung.todo_list.Repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
 @RequiredArgsConstructor
 public class TodoService {

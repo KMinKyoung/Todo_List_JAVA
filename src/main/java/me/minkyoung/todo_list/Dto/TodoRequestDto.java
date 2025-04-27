@@ -9,4 +9,5 @@ public class TodoRequestDto { //요청 DTO, 엔티티와의 분리되어 클라�
     private String title;
     private String description;
     private Status status; //PENDING 또는 COMPLETED 또는 IN_PROGRESS
+
 }
