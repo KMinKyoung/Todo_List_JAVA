@@ -6,6 +6,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
@@ -23,7 +24,9 @@ public class JwtTokenProvider {
 
     @PostConstruct
     protected void init() {
-        this.secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
+        // secretKey를 Base64로 인코딩하고, SecretKey 객체를 생성하여 key에 할당
+        byte[] keyBytes = Base64.getDecoder().decode(secretKey); // Base64로 디코딩
+        key = new SecretKeySpec(keyBytes, SignatureAlgorithm.HS256.getJcaName()); // SecretKeySpec을 사용하여 key 생성
     }
 
     // 토큰 생성
@@ -35,7 +38,7 @@ public class JwtTokenProvider {
                 .setSubject(email)
                 .setIssuedAt(now)
                 .setExpiration(expiry)
-                .signWith(key, SignatureAlgorithm.HS256)
+                .signWith(key, SignatureAlgorithm.HS256) // Key를 정상적으로 사용
                 .compact();
     }
 
@@ -59,3 +62,4 @@ public class JwtTokenProvider {
         }
     }
 }
+
