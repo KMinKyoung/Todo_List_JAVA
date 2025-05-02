@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo_List 로그인</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <div class="login-wrapper">
     <div class="login-container">
         <h1>Todo_List</h1>
-        <form action="/login" method="post">
-            <input type="email" name="email" placeholder="이메일 입력" required>
-            <input type="password" name="password" placeholder="비밀번호 입력" required>
-            <button type="submit" class="login-button">로그인</button>
+        <form id="login-form">
+            <input type="email" id="email" name="email" placeholder="이메일 입력" required>
+            <input type="password" id="password" name="password" placeholder="비밀번호 입력" required>
+            <button type="submit"  class="login-button">로그인</button>
         </form>
         <button class="signup-button" onclick="location.href='../html/signup.html'">회원가입</button>
     </div>
 </div>
 
+<script src="../js/login.js"></script>
 </body>
 </html>
