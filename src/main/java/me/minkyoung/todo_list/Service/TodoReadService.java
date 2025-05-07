@@ -24,7 +24,7 @@ public class TodoReadService {
 
     }
 
-    public TodoResponseDto getTodoById(Long id) {
+    public TodoResponseDto getTodoById(Long id, User user) {
         //id로 DB 에서 Todo를 조회
         Todo todo = todoRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("해당 ID는 찾을 수 없습니다: "+ id));

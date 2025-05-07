@@ -42,9 +42,10 @@ public class TodoController {
     }
 
     @GetMapping("todos_Lookup/{id}")
-    public ResponseEntity<TodoResponseDto> getTodoById(@PathVariable Long id) {
-        TodoResponseDto response = todoReadService.getTodoById(id); // 서비스 계층 호출
-        return ResponseEntity.ok(response);
+    public ResponseEntity<TodoResponseDto> getTodoById(@PathVariable Long id,@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        User user = userDetails.getUser();
+        TodoResponseDto responseDto = todoReadService.getTodoById(id,user); //현재 로그인한 사용자
+        return ResponseEntity.ok(responseDto);
     }
 
     @PutMapping("/{id}")

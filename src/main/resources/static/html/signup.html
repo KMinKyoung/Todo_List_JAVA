@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
+
 <h1>회원가입</h1>
-<form action="/signup" method="post">
-    <input type="text" name="email" placeholder="이메일 입력" required>
-    <input type="password" name="password" placeholder="비밀번호 입력" required>
+
+<form id="signup-form">
+    <input type="text" id="username" placeholder="이름" required><br><br>
+    <input type="email" id="email" placeholder="이메일" required><br><br>
+    <input type="password" id="password" placeholder="비밀번호" required><br><br>
     <button type="submit">회원가입</button>
+    <button onclick="window.location.href = '../html/index.html'">메인페이지</button>
 </form>
 
-<p>이미 계정이 있으신가요? <a href="../html/index.html">로그인</a></p>
+<!-- 뒤로 가기 버튼 -->
+
+
+<script src="../js/signup.js"></script>
 </body>
 </html>

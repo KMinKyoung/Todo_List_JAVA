@@ -59,7 +59,7 @@ body {
     border: 2px solid black;
     cursor: pointer;
     margin-top: 10px;
-    background-color: #E0A093;
+    background-color: #ffffff;
 }
 
 .login-button:hover, .signup-button:hover {

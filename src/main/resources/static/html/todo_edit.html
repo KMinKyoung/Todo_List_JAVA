@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo 수정</title>
+    <link rel="stylesheet" href="../css/todoEdit.css">
+</head>
+<body>
+
+<h1>할 일 수정</h1>
+<form id="edit-form">
+    <input type="text" id="title" placeholder="Title" required><br><br>
+    <textarea id="description" placeholder="Description" required></textarea><br><br>
+    <select id="status">
+        <option value="TODO">TODO</option>
+        <option value="IN_PROGRESS">IN_PROGRESS</option>
+        <option value="DONE">DONE</option>
+    </select><br><br>
+    <button type="submit">수정하기</button>
+</form>
+
+<script src="../js/todo_edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+/* todoEdit.css - 수정 페이지 전용 스타일 */
+
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: #FFF4F4;
+    margin: 0;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #E0A093;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #ffffff;
+}
