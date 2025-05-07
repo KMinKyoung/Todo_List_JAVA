@@ -1,13 +1,10 @@
 document.getElementById('login-form').addEventListener('submit', async function (e) {
-    e.preventDefault(); // 폼 기본 제출 막기
+    e.preventDefault();
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    const loginData = {
-        email: email,
-        password: password
-    };
+    const loginData = { email, password };
 
     try {
         const response = await fetch('/auth/login', {
@@ -16,20 +13,20 @@ document.getElementById('login-form').addEventListener('submit', async function 
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(loginData),
-            credentials: 'include' // ✅ 이거 없으면 CORS 때문에 403 뜰 수 있어요
+            credentials: 'include'
         });
 
-
         if (!response.ok) {
-            const errorText = await response.text(); // JSON이 아닐 수도 있으니
+            const errorText = await response.text();
             throw new Error(`로그인 실패: ${errorText}`);
         }
 
-        const data = await response.json(); // 이제 안전하게 JSON 파싱
-        localStorage.setItem("token", data.token);
+        const data = await response.json();
+        localStorage.setItem("auth_token", data.token); // ✅ 통일된 키로 저장
+        console.log("저장된 토큰:", data.token);
+
         window.location.href = "../html/todo.html";
     } catch (error) {
         alert(`오류가 발생했습니다: ${error.message}`);
     }
-
 });

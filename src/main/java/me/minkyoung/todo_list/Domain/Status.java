@@ -4,5 +4,6 @@ public enum Status {
     //PENDING, COMPLETED, IN_PROGRESS
     TODO,
     IN_PROGRESS,
-    DONE
+    DONE,
+    PENDING,
 }

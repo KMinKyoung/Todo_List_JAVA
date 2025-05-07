@@ -4,21 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <!-- CSS 파일 연결 -->
+    <link rel="stylesheet" href="../css/todoStyle.css">
 </head>
 <body>
-<h1>My Todo List</h1>
 
-<!-- 할 일 목록을 출력할 영역 -->
+<h1 style="text-align:center; margin-top: 20px;">My Todo List</h1>
+
 <div id="todo-list"></div>
 
-<!-- 새 할 일 추가하는 폼 -->
-<h2>Add Todo</h2>
-<form id="add-todo-form">
-    <input type="text" id="title" placeholder="Title" required>
-    <textarea id="description" placeholder="Description"></textarea>
-    <button type="submit">Add Todo</button>
-</form>
+<!-- 할 일 추가 버튼 -->
+<button class="add-todo-button" onclick="window.location.href = '../html/add_todo.html';">+</button>
 
-<script src="todo.js"></script>
+<script src="../js/todo.js"></script>
 </body>
 </html>

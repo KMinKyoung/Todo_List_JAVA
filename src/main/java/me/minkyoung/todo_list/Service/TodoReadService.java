@@ -3,6 +3,7 @@ package me.minkyoung.todo_list.Service;
 import lombok.RequiredArgsConstructor;
 import me.minkyoung.todo_list.Dto.TodoResponseDto;
 import me.minkyoung.todo_list.Entity.Todo;
+import me.minkyoung.todo_list.Entity.User;
 import me.minkyoung.todo_list.Repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,8 @@ import java.util.stream.Collectors;
 public class TodoReadService {
     private final TodoRepository todoRepository;
 
-    public List<TodoResponseDto> getAllTodos() {
-        List<Todo> todos = todoRepository.findAll();
+    public List<TodoResponseDto> getAllTodos(User user) {
+        List<Todo> todos = todoRepository.findAllByUser(user);
 
         return todos.stream()
                 .map(TodoResponseDto::new)

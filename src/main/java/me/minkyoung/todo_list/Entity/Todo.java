@@ -30,6 +30,10 @@ public class Todo {
     @Column(updatable = false)// 값이 바뀌지 않도록 설정
     private LocalDateTime createdAt; // 생성시 자동 저장
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     /*public Todo(TodoRequestDto dto) {
         this.title = dto.getTitle();
         this.description = dto.getDescription();

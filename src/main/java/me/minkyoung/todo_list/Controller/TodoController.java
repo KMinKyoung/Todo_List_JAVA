@@ -3,12 +3,16 @@ package me.minkyoung.todo_list.Controller;
 import lombok.RequiredArgsConstructor;
 import me.minkyoung.todo_list.Dto.TodoRequestDto;
 import me.minkyoung.todo_list.Dto.TodoResponseDto;
+import me.minkyoung.todo_list.Entity.User;
 import me.minkyoung.todo_list.Service.TodoDeleteService;
 import me.minkyoung.todo_list.Service.TodoReadService;
 import me.minkyoung.todo_list.Service.TodoService;
 import me.minkyoung.todo_list.Service.TodoUpdateService;
+import me.minkyoung.todo_list.security.UserDetailsImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,15 +28,17 @@ public class TodoController {
     private final TodoDeleteService todoDeleteService;
 
     @PostMapping()
-    public ResponseEntity<TodoResponseDto> createTodo(@RequestBody TodoRequestDto todoRequestDto) {
-        TodoResponseDto todoResponseDto = todoService.createTodo(todoRequestDto);
+    public ResponseEntity<TodoResponseDto> createTodo(@RequestBody TodoRequestDto todoRequestDto,
+                                                      @AuthenticationPrincipal UserDetails userDetails) {
+        String email = userDetails.getUsername();
+        TodoResponseDto todoResponseDto = todoService.createTodo(todoRequestDto, email);
         return ResponseEntity.status(HttpStatus.CREATED).body(todoResponseDto);
     }
 
     @GetMapping("/todos_Lookup")
-    public ResponseEntity<List<TodoResponseDto>> getAllTodos() {
-        List<TodoResponseDto> response = todoReadService.getAllTodos(); // 서비스 계층 호출
-        return ResponseEntity.ok(response);
+    public ResponseEntity<List<TodoResponseDto>> getAllTodos(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        User user = userDetails.getUser();
+        return ResponseEntity.ok(todoReadService.getAllTodos(user));
     }
 
     @GetMapping("todos_Lookup/{id}")
