@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-    <!-- CSS 파일 연결 -->
     <link rel="stylesheet" href="../css/todoStyle.css">
 </head>
 <body>
 
 <h1 style="text-align:center; margin-top: 20px;">My Todo List</h1>
-
+<div style="text-align:center; margin-bottom: 20px;">
+    <label for="sort-select">정렬:</label>
+    <select id="sort-select">
+        <option value="none">선택 안 함</option>
+        <option value="korean">가나다순</option>
+        <option value="number">작성순서(ID)</option>
+        <option value="english">영어 알파벳순</option>
+    </select>
+</div>
 <div id="todo-list"></div>
-
-<!-- 할 일 추가 버튼 -->
 <button class="add-todo-button" onclick="window.location.href = '../html/add_todo.html';">+</button>
-<!-- 로그아웃 버튼 -->
 <button id="logout-button" class="logout-button">로그아웃</button>
 <script src="../js/todo.js"></script>
 </body>

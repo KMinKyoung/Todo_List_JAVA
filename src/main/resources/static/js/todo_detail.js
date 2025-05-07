@@ -16,7 +16,7 @@ fetch(`http://localhost:8080/todos/todos_Lookup/${todoId}`, {
         <h2>${todo.title}</h2>
         <p><strong>Description:</strong> ${todo.description}</p>
         <p><strong>Status:</strong> ${todo.status}</p>
-        <p><strong>Created At:</strong> ${new Date(todo.createdAt).toLocaleString()}</p>
+          <p><strong>Created At:</strong> ${todo.createdAt}</p>
         
 
     `;
