@@ -4,5 +4,16 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
     defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+# 나중에 올릴떄 URL, NAMe, PASSWORD 다 지우기
+  datasource:
+    url: #연결할 DB
+    username: #이름
+    password: #비밀번호
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+jwt:
+  secret: #비밀키
+  expiration: 3600000 # 1시간 (1000 * 60 * 60)

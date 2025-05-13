@@ -14,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 12px;
 }
 
 .login-container {
@@ -60,6 +61,7 @@ body {
     cursor: pointer;
     margin-top: 10px;
     background-color: #ffffff;
+
 }
 
 .login-button:hover, .signup-button:hover {

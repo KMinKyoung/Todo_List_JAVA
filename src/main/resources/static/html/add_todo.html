@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Todo</title>
-    <!-- CSS 파일 연결 -->
-    <link rel="stylesheet" href="../css/todoStyle.css">
+    <link rel="stylesheet" href="../css/todoAdd.css">
 </head>
 <body>
 
-<h1 style="text-align:center; margin-top: 20px;">Add Todo</h1>
+<div class="todo-form-wrapper">
+    <h1>Todo 추가</h1>
 
-<form id="add-todo-form" style="text-align:center; margin-top: 20px;">
-    <input type="text" id="title" placeholder="Title" required><br><br>
-    <textarea id="description" placeholder="Description" required></textarea><br><br>
-    <button type="submit">Add Todo</button>
-</form>
+    <form id="add-todo-form">
+        <input type="text" id="title" placeholder="Title" required />
+        <textarea id="description" placeholder="Description" required></textarea>
+        <button type="submit">추가하기</button>
+    </form>
+</div>
 
-<!-- JavaScript 파일 연결 -->
 <script src="../js/add_todo.js"></script>
-
 </body>
 </html>
